@@ -1,4 +1,4 @@
-package i_o_and_n_o.tobias_motor_repairs.service_app.tracker;
+package io_and_no.tobias_motor_repairs.service_app.tracker;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             WatchService watchService = FileSystems.getDefault().newWatchService();
-            Path path = Paths.get("src/main/java/i_o_and_n_o/tobias_motor_repairs/service_app/service");
+            Path path = Paths.get("src/main/java/io_and_no/tobias_motor_repairs/service_app/service");
             path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
             watchService.poll(5, TimeUnit.SECONDS);
 
