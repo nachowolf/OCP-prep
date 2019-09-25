@@ -1,0 +1,4 @@
+Toyota 2
+Nissan 0
+Ford 4
+Other 6
