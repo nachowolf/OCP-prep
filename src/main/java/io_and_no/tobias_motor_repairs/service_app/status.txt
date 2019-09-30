@@ -1,4 +1,4 @@
-Toyota 2
+Toyota 0
 Nissan 0
-Ford 4
-Other 6
+Ford 0
+Other 0
