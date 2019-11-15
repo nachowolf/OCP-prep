@@ -1,30 +1,46 @@
 package streams.dual;
 
-
 import java.util.Arrays;
 import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
+class Person{
+
+    private String firstName;
+    private String lastName;
+
+    Person(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + firstName + ", " + lastName +
+                "}";
+    }
+}
 
 public class DualStreamer {
+
+
+
     public static void main(String[] args) {
+List<Person> list = Arrays.asList(
+        new Person("Tom", "Riddle"),
+        new Person("Tom", "Hanks"),
+        new Person("Yusuf", "Pathan"));
 
-//        public class Kata {
-//            public static int[] invert(int[] array) {
-//                return java.util.Arrays.stream(array).map(i -> -i).toArray();
-//            }
-//        }
-
-
-        int[] array = new int[]{-1, 2, -3, 4, -5};
-
-       Arrays.stream(array).boxed().map(i -> -i).forEach(System.out::println);
-
-       String start = "most trees are blue";
-       StringBuilder sb = new StringBuilder();
-       Arrays.stream(start.split(" ")).map(w -> w = w.split("")[0].toUpperCase().concat(w.substring(1))).forEach(s -> sb.append(s + " "));
-        System.out.println(sb.toString());
+        list.stream().sorted (
+                Comparator.comparing (Person::getFirstName)
+                        .reversed() .thenComparing (Person::getLastName))
+                .forEach (System.out::println);
     }
 }

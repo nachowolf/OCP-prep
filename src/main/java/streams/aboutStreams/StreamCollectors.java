@@ -135,6 +135,9 @@ public class StreamCollectors {
               .filter(isBelowLegalAge())
               .count();
 
+      for(Person person : legalAged){
+          System.out.printf("name: %s %s\n age: %d\n\n", person.name, person.surname, person.age);
+      }
     }
     }
 

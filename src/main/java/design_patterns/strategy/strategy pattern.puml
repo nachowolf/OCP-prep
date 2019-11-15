@@ -1,0 +1,31 @@
+@startuml
+
+class Animal{
+'field
++ flyingType : Flys
+
+'methods
++ tryToFly() : String
++ setFlyingAbility(Flys) : void
+
+}
+
+interface Flys{
++fly() : String
+}
+
+Animal --> Flys
+
+class Dog extends Animal
+class Bird extends Animal
+
+class itFlys implements Flys{
++fly() : String
+}
+
+class itCantFly implements Flys{
++fly() : String
+}
+
+
+@enduml
